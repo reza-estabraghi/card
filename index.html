@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;padding: 0;box-sizing: border-box;
+        }
+        main{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            text-transform: uppercase;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            background-image: url(img/bank-office-isometric-illustration_1284-23000.jpg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+        .card{
+            width: 500px;
+            height: 300px;
+            background-image: linear-gradient(to right bottom,grey,rgb(67, 41, 88));
+            border-radius: 20px;
+            position: relative;
+            transition: 1s;
+        }
+        .top{
+            width: 100%;
+            height: 30%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            overflow: hidden;
+        }
+        .top>figure{
+            width: 30%;
+            height: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .top>figure>img{
+            width: 70%;
+            height: 70%;
+            object-fit: contain;
+            border-radius: 10px;
+
+        }
+        .numb{
+            width: 100%;
+            height: 40%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        .numb>span{
+            width: 20%;
+            height: 60%;
+            font-size: 40px;
+            color: whitesmoke;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-shadow: 5px 5px 10px rgb(8, 8, 8);
+        }
+        .but{
+            width: 100%;
+            height: 30%;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .but>div{
+            width: 40%;
+            height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        .but>div>p{
+            width: 100%;
+            display: flex;
+            font-size: 20px;
+            color: silver;
+            justify-content: center;
+        }
+        .but>div>p:nth-of-type(2){
+            width: 20%;
+            display: flex;
+            color: blanchedalmond;
+            justify-content: center;
+            font-size: 20px;
+            text-shadow: 5px 5px 10px rgb(8, 8, 8);
+
+        }
+        .but>div>span{
+            width: 20%;
+            display: flex;
+            color: blanchedalmond;
+            justify-content: center;
+            font-size: 20px;
+            text-shadow: 5px 5px 10px rgb(8, 8, 8);
+        }
+        .back{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0%;
+            border-radius: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            background-image: linear-gradient(to right bottom,grey,rgb(67, 41, 88));
+            opacity: 0;
+        }
+        .back>p{
+            display: flex;
+            width: 100%;
+            height: 50px;
+            background-color: black;
+        }
+        .back>div{
+            width: 100%;
+            height: 70px;
+            background-color: rgb(203, 202, 202);
+            margin-bottom: 70px;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            font-size: 20px;
+        }
+        .back>div>span{
+            font-size: 30px;
+            color: rgb(64, 49, 27);
+            margin-left: 10px;
+        }
+        .rot{
+            transform: rotateY(180deg);
+
+        }
+        .zin{
+            opacity: 1 !important;
+        }
+        .input{
+            width: 400px;
+            height: 300px;
+            border-radius: 20px;
+            background-image: linear-gradient(to right bottom,grey,rgb(67, 41, 88));
+            display: flex;
+            align-items: end;
+            flex-wrap: wrap;
+            position: relative;
+            transition: 1s;
+            z-index: 99;
+        }
+        .addad{
+            width: 100%;
+            height: 100px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-items: center;
+            margin-top: 100px;
+        }
+        .addad>input{
+            width: 20%;
+            height: 50%;
+            font-size: 35px;
+            background-color: inherit;
+            color: whitesmoke;
+            text-shadow: 5px 5px 10px rgb(8, 8, 8);
+        }
+        .fbut{
+            width: 100%;
+            height: 100px;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .fbut>div{
+            width: 40%;
+            height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        .fbut>div>p{
+            width: 100%;
+            display: flex;
+            font-size: 18px;
+            color: silver;
+            justify-content: center;
+        }
+        .fbut>div>input{
+            width: 22%;
+            display: flex;
+            color: blanchedalmond;
+            justify-content: center;
+            font-size: 20px;
+            text-shadow: 5px 5px 10px rgb(8, 8, 8);
+            background-color: inherit;
+        }
+        .fbut>div>span{
+            font-size: 25px;
+            color: blanchedalmond;
+        }
+        .fback{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0%;
+            border-radius: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            background-image: linear-gradient(to right bottom,grey,rgb(67, 41, 88));
+            z-index: -99;
+            opacity: 0;
+        }
+        .fback>p{
+            display: flex;
+            width: 100%;
+            height: 50px;
+            background-color: black;
+        }
+        .fback>div{
+            width: 100%;
+            height: 70px;
+            background-color: rgb(203, 202, 202);
+            margin-bottom: 70px;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            font-size: 20px;
+        }
+        .fback>div>input{
+            font-size: 25px;
+            color: rgb(64, 49, 27);
+            background-color: inherit;
+            width: 100px;
+            margin-left: 10px;
+        }
+        .op{
+            opacity: 1;
+            z-index: 99;
+        }
+        button{
+            width: 100px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-transform: uppercase;
+            position: fixed;
+            top: 200px;
+            left: 550px;
+            border-radius: 20px;
+            background-image: linear-gradient(to right bottom,grey,rgb(67, 41, 88));
+        }
+        #hold{
+            font-size: 17px;
+            background-color: inherit;
+            color: blanchedalmond;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <button>rotate</button>
+        <section class="input">
+            <div class="addad">
+                <input class="one" type="text" maxlength="4">
+                <input class="one" type="text" maxlength="4">
+                <input class="one" type="text" maxlength="4">
+                <input class="one" type="text" maxlength="4">
+            </div>
+            <div class="fbut">
+                <div>
+                    <p>card holder</p>
+                    <textarea name="holder" id="hold" cols="10" rows="3" maxlength="30"></textarea>
+                </div>
+                <div>
+                    <p>expire</p>
+                    <input class="expire" type="text" maxlength="2">
+                    <span>/</span>
+                    <input class="expire" type="text" maxlength="2">
+                </div>
+            </div>
+            <div class="fback">
+                <p></p>
+                <div>cvv2 : <input id="cv" type="text" maxlength="4"></div>
+            </div>
+        </section>
+        <section class="card">
+            <div class="top">
+                <figure>
+                    <img src="img/lo.jpg" alt="">
+                </figure>
+                <figure>
+                    <img src="img/logo1.png" alt="">
+                </figure>
+            </div>
+            <div class="numb">
+                <span>1234</span><span>5678</span><span>9123</span><span>4567</span>
+            </div>
+            <div class="but">
+                <div>
+                    <p>card holder</p>
+                    <span class="hold">mohammadreza</span>
+                </div>
+                <div>
+                    <p>expire</p>
+                    <span class="ex">12</span>
+                    <p>/</p>
+                    <span class="ex">34</span>
+                </div>
+            </div>
+            <div class="back">
+                <p></p>
+                <div>cvv2 : <span class="cv">1234</span></div>
+            </div>
+        </section>
+    </main>
+</body>
+<script>
+    let _inp = document.querySelectorAll('.one')
+    let _span = document.querySelectorAll('.numb>span')
+    let _exp = document.querySelectorAll('.expire')
+    let _fexp = document.querySelectorAll('.ex')
+    document.getElementsByTagName('button')[0].addEventListener('click',()=>{
+        document.getElementsByClassName('card')[0].classList.toggle('rot')
+        document.getElementsByClassName('input')[0].classList.toggle('rot')
+        document.getElementsByClassName('fback')[0].classList.toggle('op')
+        document.getElementsByClassName('back')[0].classList.toggle('zin')
+        document.getElementsByClassName('back')[0].classList.toggle('rot')
+        document.getElementsByClassName('fback')[0].classList.toggle('rot')
+    })
+    console.log(_inp);
+    _inp.forEach((item)=>{
+        item.addEventListener('input',(e)=>{
+            for(let i=0;i<=4;i++){
+                _span[i].innerHTML= _inp[i].value
+            }
+        })
+        item.addEventListener('input',(e)=>{
+            let x = e.target.value
+            if(x.length >3){
+                item.nextElementSibling.focus()
+            }
+        })
+    })
+    document.getElementById('hold').addEventListener('input',(e)=>{
+        let x = e.target.value
+        document.getElementsByClassName('hold')[0].innerHTML=x
+    })
+    _exp.forEach((val)=>{
+        val.addEventListener('input',(e)=>{
+            for(let i=0;i<=4;i++){
+                _fexp[i].innerHTML= _exp[i].value
+            }
+        })
+        val.addEventListener('input',(e)=>{
+            let x = e.target.value
+            if(x.length >1){
+                val.nextElementSibling.nextElementSibling.focus()
+            }
+        })
+    })
+    document.getElementById('cv').addEventListener('input',(e)=>{
+        let x = e.target.value
+        document.getElementsByClassName('cv')[0].innerHTML=x
+    })
+</script>
+</html>

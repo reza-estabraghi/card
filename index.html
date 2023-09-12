@@ -346,40 +346,33 @@
         document.getElementsByClassName('back')[0].classList.toggle('rot')
         document.getElementsByClassName('fback')[0].classList.toggle('rot')
     })
-    console.log(_inp);
-    _inp.forEach((item)=>{
-        item.addEventListener('input',(e)=>{
-            for(let i=0;i<=4;i++){
-                _span[i].innerHTML= _inp[i].value
-            }
-        })
-        item.addEventListener('input',(e)=>{
+    for (let i= 0;i<=3 ;++i){
+        _inp[i].addEventListener('input',(e)=>{
             let x = e.target.value
-            if(x.length >3){
-                item.nextElementSibling.focus()
+            console.log(x);
+            _span[i].innerHTML=x
+            if (x.length>=4){
+                _inp[i].nextElementSibling.focus()
             }
         })
-    })
+    }
+
     document.getElementById('hold').addEventListener('input',(e)=>{
         let x = e.target.value
         document.getElementsByClassName('hold')[0].innerHTML=x
-    })
-    _exp.forEach((val)=>{
-        val.addEventListener('input',(e)=>{
-            for(let i=0;i<=4;i++){
-                _fexp[i].innerHTML= _exp[i].value
-            }
-        })
-        val.addEventListener('input',(e)=>{
-            let x = e.target.value
-            if(x.length >1){
-                val.nextElementSibling.nextElementSibling.focus()
-            }
-        })
     })
     document.getElementById('cv').addEventListener('input',(e)=>{
         let x = e.target.value
         document.getElementsByClassName('cv')[0].innerHTML=x
     })
+    for(let i=0;i<=1;i++){
+        _exp[i].addEventListener('input',(e)=>{
+            let x = e.target.value
+            _fexp[i].innerHTML=x
+            if(x.length>=2){
+                _exp[i].nextElementSibling.nextElementSibling.focus()
+            }
+        })
+    }
 </script>
 </html>

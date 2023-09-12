@@ -2,9 +2,6 @@
 
 **If you have a lot of information to display on your site, why don't you use my accordion menu**
 
-![card](https://github.com/reza-estabraghi/card/assets/137290475/3a13f674-f8aa-4f61-b690-655b949893e9)
-
-![card3](https://github.com/reza-estabraghi/card/assets/137290475/107bffa4-6a2b-4346-859e-26e060464bdd)
 
 - [Demo Project](https://reza-estabraghi.github.io/card/)
 
